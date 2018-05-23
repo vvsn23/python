@@ -1,0 +1,34 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:  concurrent_mode
+# Required-Start: $syslog $remote_fs
+# Required-Stop: $syslog $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop:  0 1 6
+# Short Description:  Initial configuration script for udhcpd and  hostapd 
+# Description:  StArTing the udhcpd and hostapd 
+### END INIT INFO
+
+#Author: RET Linux Embdded Team-satya
+
+NAME=concurrent_mode
+SCRIPTNAME=/etc/init.d/concurrent_mode
+
+#Start and stop Run - levels
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+#To START THE hostapd and udhcpd
+
+sudo killall hostapd
+sleep 3
+
+sudo udhcpd /etc/udhcpd.conf
+sleep 3
+
+sudo hostapd -B /etc/hostapd/hostapd.conf
+sleep 2
+
+sudo service networking restart
+
+#exit 0

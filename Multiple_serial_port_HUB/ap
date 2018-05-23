@@ -1,0 +1,9 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+auto p2p0
+iface lo inet loopback
+allow-hotplug p2p0
+iface p2p0 inet static
+	address 192.168.55.5
+	netmask 255.255.255.0
+	network 192.168.55.0

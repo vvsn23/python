@@ -1,0 +1,28 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:  script_port2
+# Required-Start: $syslog $remote_fs
+# Required-Stop: $syslog $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop:  0 1 6
+# Short Description:  Initial configuration script for Mobile_DVR 
+# Description:  Starting the DVR - Client Binary
+### END INIT INFO
+
+#Author: Lekha Wireless solutions Embdded Team
+
+NAME=script_port2
+SCRIPTNAME=/etc/init.d/script_port2
+
+#Start and stop Run - levels
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+#To turn-off the LED2-green indicating NOT RECORDING
+
+echo "RET RET RET RET55 RET RET "
+
+
+sh /home/lemaker/infusion.sh
+
+#exit 0

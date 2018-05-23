@@ -1,0 +1,27 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:  network_ret
+# Required-Start: $syslog $remote_fs
+# Required-Stop: $syslog $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop:  0 1 6
+# Short Description:  Network Initial configuration script for Aggerater 
+# Description:  Aggerater network initialization script
+### END INIT INFO
+
+#Author: RET Embedded Linux Team
+
+NAME=network_ret
+SCRIPTNAME=/etc/init.d/network_ret
+
+#Start and stop Run - levels
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+#To turn-off the LED2-green indicating NOT RECORDING
+
+echo "NETWORK VVSN"
+
+sudo python /home/lemaker/network.py
+
+#exit 0
